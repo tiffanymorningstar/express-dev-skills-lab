@@ -8,6 +8,7 @@ const router = Router()
 
 /* GET users listing. */
 router.get('/', skillsCtrl.index)
+router.get('/new', skillsCtrl.new)
 
 // router.get('/', function(req, res) {
 //   res.send('respond with a resource')

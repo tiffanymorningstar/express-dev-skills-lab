@@ -15,6 +15,11 @@ function index(req, res) {
   })
 }
 
+function newTodo(req, res) {
+  res.render('todos/new')
+}
+
 export {
-  index
+  index,
+  newToDo as new,
 }
