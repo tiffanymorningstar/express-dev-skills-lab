@@ -15,11 +15,39 @@ function index(req, res) {
   })
 }
 
-function newTodo(req, res) {
-  res.render('todos/new')
+function newSkill(req, res) {
+  res.render('skills/new')
+}
+
+function create(req, res) {
+  console.log(req.body)
+  Skill.create(req.body)
+  .then(skill => {
+		// Notice we are doing a redirect here!
+    res.redirect('/skills')
+  })
+  .catch(error => {
+    console.log(error)
+    res.redirect('/skills')
+  })
+}
+
+function show(req, res) {
+  Skill.findById(req.params.id)
+  .then(skill => {
+    res.render('skills/show', {
+      skill: skill
+    })
+  })
+  .catch(error => {
+    console.log(error)
+    res.redirect('/skills')
+  })
 }
 
 export {
   index,
-  newToDo as new,
+  newSkill as new,
+  create,
+  show,
 }
