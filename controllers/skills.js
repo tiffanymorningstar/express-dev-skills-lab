@@ -7,6 +7,7 @@ function index(req, res) {
   .then(skills => { // todos represents the result of the query, in this case ALL todos
     res.render('skills/index', {
       skills: skills,
+      time: req.time
     })
   })
   .catch(error => { // If there's an error, console.log it and redirect back home!
